@@ -1,170 +1,156 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  let selectedVariant = null
-  let currentProduct = null
+  let selectedVariant = null;
+  let currentProduct = null;
+  let selectedColor = null;
 
   document.querySelectorAll('.plus-btn').forEach(btn => {
 
     btn.addEventListener('click', function () {
 
-      let handle = this.closest('.grid-item').dataset.handle
+      let handle = this.closest('.grid-item').dataset.handle;
 
       fetch(`/products/${handle}.js`)
         .then(res => res.json())
         .then(product => {
 
-          currentProduct = product
+          currentProduct = product;
 
-          document.getElementById('popup-title').innerText = product.title
-          document.getElementById('popup-price').innerText = (product.price / 100).toFixed(2)
+          // BASIC INFO
+          document.getElementById('popup-title').innerText = product.title;
+          document.getElementById('popup-price').innerText = (product.price / 100).toFixed(2);
 
           if (product.images.length) {
-            document.getElementById('popup-img').src = product.images[0]
+            document.getElementById('popup-img').src = product.images[0];
           }
 
-          document.getElementById('popup-desc').innerText = product.description.replace(/<[^>]*>?/gm, '')
+          document.getElementById('popup-desc').innerText =
+            product.description.replace(/<[^>]*>?/gm, '');
 
-          // COLOR
-          let colorIndex = product.options.findIndex(opt => opt.name.toLowerCase() === 'color')
-          let colorsHTML = ''
+          // ===== COLORS =====
+          let colorIndex = product.options.findIndex(opt =>
+            opt.name.toLowerCase() === 'color'
+          );
+
+          let colorsHTML = '';
 
           if (colorIndex !== -1) {
-            let used = []
+            let used = [];
 
             product.variants.forEach(v => {
-              let color = v.options[colorIndex]
+              let color = v.options[colorIndex];
 
               if (!used.includes(color)) {
-                used.push(color)
+                used.push(color);
 
-                colorsHTML += `<div class="color-swatch" data-color="${color}">
-    <span class="color-bar" style="background:${color.toLowerCase()}"></span>
-    ${color}
-  </div>`
-
+                colorsHTML += `
+                  <div class="color-swatch" data-color="${color}">
+                    <span class="color-bar" style="background:${color.toLowerCase()}"></span>
+                    ${color}
+                  </div>
+                `;
               }
-            })
+            });
           }
 
-          document.getElementById('colors').innerHTML = colorsHTML
-          
-          let firstColor = document.querySelector('.color-swatch')
-            if (firstColor) {
-            firstColor.classList.add('active')
-            }
+          document.getElementById('colors').innerHTML = colorsHTML;
 
-          // SIZE
-          let sizeHTML = ''
+          // DEFAULT ACTIVE COLOR
+          let firstColor = document.querySelector('.color-swatch');
+          if (firstColor) {
+            firstColor.classList.add('active');
+            selectedColor = firstColor.dataset.color;
+          }
+
+          // ===== SIZES =====
+          let sizeHTML = '';
           product.variants.forEach(v => {
-            sizeHTML += `<option value="${v.id}">${v.title}</option>`
-          })
+            sizeHTML += `<option value="${v.id}">${v.title}</option>`;
+          });
 
-          document.getElementById('sizes').innerHTML = sizeHTML
+          document.getElementById('sizes').innerHTML = sizeHTML;
 
-          selectedVariant = product.variants[0].id
+          selectedVariant = product.variants[0].id;
 
-          document.getElementById('popup').classList.add('active')
+          // OPEN POPUP
+          document.getElementById('popup').classList.add('active');
 
-          // COLOR CLICK
+          // ===== COLOR CLICK =====
+          document.querySelectorAll('.color-swatch').forEach(el => {
+            el.addEventListener('click', function () {
 
-let selectedColor = null;
+              document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'));
+              this.classList.add('active');
 
-document.querySelectorAll('.color-swatch').forEach(el => {
-  el.addEventListener('click', function () {
+              selectedColor = this.dataset.color;
 
-    document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'))
-    this.classList.add('active')
+              let sizeSelect = document.getElementById('sizes');
+              let selectedSize = sizeSelect.options[sizeSelect.selectedIndex]?.text;
 
-    selectedColor = this.dataset.color
+              let matchedVariant = product.variants.find(v =>
+                v.options.includes(selectedColor) && v.title.includes(selectedSize)
+              );
 
-    let sizeSelect = document.getElementById('sizes')
-    let selectedSize = sizeSelect.options[sizeSelect.selectedIndex]?.text
+              if (matchedVariant) {
+                selectedVariant = matchedVariant.id;
+              }
 
-    let matchedVariant = product.variants.find(v => {
-      return v.options.includes(selectedColor) && v.title.includes(selectedSize)
-    })
+            });
+          });
 
-    if (matchedVariant) {
-      selectedVariant = matchedVariant.id
-    }
-
-  })
-})
-
-    document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'))
-    this.classList.add('active')
-
-    selectedColor = this.dataset.color
-
-    let sizeSelect = document.getElementById('sizes')
-    let selectedSize = sizeSelect.options[sizeSelect.selectedIndex]?.text
-
-    let matchedVariant = product.variants.find(v => {
-      return v.options.includes(selectedColor) && v.title.includes(selectedSize)
-    })
-
-    if (matchedVariant) {
-      selectedVariant = matchedVariant.id
-    }
-
-  })
-})
-
-          // SIZE CHANGE
+          // ===== SIZE CHANGE =====
           document.getElementById('sizes').addEventListener('change', function () {
-            let selectedSize = this.options[this.selectedIndex].text
 
-            let activeColor = document.querySelector('.color-swatch.active')?.dataset.color
+            let selectedSize = this.options[this.selectedIndex].text;
 
-            let matchedVariant = product.variants.find(v => {
-            return v.options.includes(activeColor) && v.title.includes(selectedSize)
-            })
+            let activeColor = document.querySelector('.color-swatch.active')?.dataset.color;
+
+            let matchedVariant = product.variants.find(v =>
+              v.options.includes(activeColor) && v.title.includes(selectedSize)
+            );
 
             if (matchedVariant) {
-            selectedVariant = matchedVariant.id
+              selectedVariant = matchedVariant.id;
             }
-          })
 
-        })
+          });
 
-    })
+        });
 
-  })
+    });
 
-  // ADD TO CART
+  });
+
+  // ===== ADD TO CART =====
   document.getElementById('add-to-cart').addEventListener('click', function () {
 
-  let sizeSelect = document.getElementById('sizes')
-  let selectedVariantId = sizeSelect.value
+    if (!selectedVariant) {
+      alert('Please select options');
+      return;
+    }
 
-  if (!selectedVariantId) {
-    alert('Please select size')
-    return;
-  }
-
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      id: selectedVariantId,
-      quantity: 1
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: selectedVariant,
+        quantity: 1
+      })
     })
-  })
-  .then(res => res.json())
-  .then(() => {
+    .then(res => res.json())
+    .then(() => {
 
-    // CLOSE POPUP
-    document.getElementById('popup').classList.remove('active')
+      document.getElementById('popup').classList.remove('active');
 
-    // OPEN SHOPIFY CART (DEFAULT BEHAVIOR)
-    window.location.href = '/cart'
+      window.location.href = '/cart';
 
-  })
-})
+    });
 
-  // CLOSE
+  });
+
+  // ===== CLOSE =====
   document.querySelector('.close').addEventListener('click', function () {
-    document.getElementById('popup').classList.remove('active')
-  })
+    document.getElementById('popup').classList.remove('active');
+  });
 
-})
+});
