@@ -92,7 +92,17 @@ document.querySelectorAll('.color-swatch').forEach(el => {
 
           // SIZE CHANGE
           document.getElementById('sizes').addEventListener('change', function () {
-            selectedVariant = this.value
+            let selectedSize = this.options[this.selectedIndex].text
+
+            let activeColor = document.querySelector('.color-swatch.active')?.dataset.color
+
+            let matchedVariant = product.variants.find(v => {
+            return v.options.includes(activeColor) && v.title.includes(selectedSize)
+            })
+
+            if (matchedVariant) {
+            selectedVariant = matchedVariant.id
+            }
           })
 
         })
