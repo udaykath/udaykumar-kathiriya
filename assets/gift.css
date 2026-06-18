@@ -1,3 +1,15 @@
+.gift-grid {
+  width: 100%;
+  overflow: visible;
+}
+
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
