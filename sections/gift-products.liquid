@@ -2,9 +2,9 @@
   <div class="grid">
 
     {% for block in section.blocks %}
-      {% assign product = all_products[block.settings.product] %}
+      {% assign product = block.settings.product %}
       
-      <div class="grid-item" data-product='{{ product | json }}'>
+      <div class="grid-item" data-product='{{ product | json | escape }}'>
         
         <img src="{{ product.featured_image | img_url: '600x' }}">
 
