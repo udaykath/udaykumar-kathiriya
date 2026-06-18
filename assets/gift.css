@@ -19,10 +19,11 @@
   width: 100%;
 }
 
-/* FIXED FLEX WIDTH */
+/* PERFECT 3 COLUMN FIX */
 .grid-item {
   position: relative;
-  flex: 0 0 calc(33.333% - 28px);
+  flex: 0 0 calc((100% - 84px) / 3); /* 42px * 2 gaps */
+  max-width: calc((100% - 84px) / 3);
 }
 
 .grid-item img {
