@@ -1,82 +1,113 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  let selectedVariant = null
+  let currentProduct = null
+
   document.querySelectorAll('.plus-btn').forEach(btn => {
 
     btn.addEventListener('click', function () {
 
-      let raw = this.closest('.grid-item').dataset.product
+      let handle = this.closest('.grid-item').dataset.handle
 
-      if (!raw) return;
+      fetch(`/products/${handle}.js`)
+        .then(res => res.json())
+        .then(product => {
 
-      let product = JSON.parse(raw)
+          currentProduct = product
 
-      // TITLE + PRICE
-      document.getElementById('popup-title').innerText = product.title || ''
-      document.getElementById('popup-price').innerText = product.price ? (product.price / 100).toFixed(2) : ''
+          document.getElementById('popup-title').innerText = product.title
+          document.getElementById('popup-price').innerText = (product.price / 100).toFixed(2)
 
-      // IMAGE
-      if (product.featured_image) {
-        document.getElementById('popup-img').src = product.featured_image
-      }
-
-      // COLORS (SAFE)
-      let colorsHTML = ''
-      let colorIndex = -1
-
-      if (product.options_with_values) {
-        product.options_with_values.forEach((opt, i) => {
-          if (opt.name && opt.name.toLowerCase() === 'color') {
-            colorIndex = i
+          if (product.images.length) {
+            document.getElementById('popup-img').src = product.images[0]
           }
-        })
-      }
 
-      if (colorIndex !== -1 && product.variants) {
-        let used = []
+          document.getElementById('popup-desc').innerText = product.description.replace(/<[^>]*>?/gm, '')
 
-        product.variants.forEach(v => {
+          // COLOR
+          let colorIndex = product.options.findIndex(opt => opt.name.toLowerCase() === 'color')
+          let colorsHTML = ''
 
-          let color = v.options[colorIndex]
+          if (colorIndex !== -1) {
+            let used = []
 
-          if (color && !used.includes(color)) {
-            used.push(color)
+            product.variants.forEach(v => {
+              let color = v.options[colorIndex]
 
-            colorsHTML += `
-              <span class="color-swatch">
-                <span style="background:${color}"></span>
-                ${color}
-              </span>
-            `
+              if (!used.includes(color)) {
+                used.push(color)
+
+                colorsHTML += `<div class="color-swatch" data-color="${color}">${color}</div>`
+              }
+            })
           }
+
+          document.getElementById('colors').innerHTML = colorsHTML
+
+          // SIZE
+          let sizeHTML = ''
+          product.variants.forEach(v => {
+            sizeHTML += `<option value="${v.id}">${v.title}</option>`
+          })
+
+          document.getElementById('sizes').innerHTML = sizeHTML
+
+          selectedVariant = product.variants[0].id
+
+          document.getElementById('popup').classList.add('active')
+
+          // COLOR CLICK
+          document.querySelectorAll('.color-swatch').forEach(el => {
+            el.addEventListener('click', function () {
+
+              document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'))
+              this.classList.add('active')
+
+              let color = this.dataset.color
+
+              let variant = product.variants.find(v => v.options.includes(color))
+
+              if (variant) {
+                selectedVariant = variant.id
+              }
+
+            })
+          })
+
+          // SIZE CHANGE
+          document.getElementById('sizes').addEventListener('change', function () {
+            selectedVariant = this.value
+          })
+
         })
-      }
-
-      document.getElementById('colors').innerHTML = colorsHTML
-
-      // SIZES
-      let sizeHTML = ''
-
-      if (product.variants) {
-        product.variants.forEach(v => {
-          sizeHTML += `<option value="${v.id}">${v.title}</option>`
-        })
-      }
-
-      document.getElementById('sizes').innerHTML = sizeHTML
-
-      // OPEN POPUP
-      document.getElementById('popup').classList.add('active')
 
     })
 
   })
 
-  // CLOSE POPUP
-  let closeBtn = document.querySelector('.close')
-  if (closeBtn) {
-    closeBtn.addEventListener('click', function () {
-      document.getElementById('popup').classList.remove('active')
+  // ADD TO CART
+  document.getElementById('add-to-cart').addEventListener('click', function () {
+
+    if (!selectedVariant) return;
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: selectedVariant,
+        quantity: 1
+      })
     })
-  }
+    .then(res => res.json())
+    .then(() => {
+      alert('Added to cart')
+    })
+
+  })
+
+  // CLOSE
+  document.querySelector('.close').addEventListener('click', function () {
+    document.getElementById('popup').classList.remove('active')
+  })
 
 })
