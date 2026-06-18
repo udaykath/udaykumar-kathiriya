@@ -11,10 +11,60 @@
   "sections": {
     "hero": {
       "type": "gift-hero",
-      "settings": {}
+      "settings": {
+        "heading": "",
+        "desc": "",
+        "btn_text": ""
+      }
     },
     "products": {
       "type": "gift-products",
+      "blocks": {
+        "product_Gc7WLa": {
+          "type": "product",
+          "settings": {
+            "product": "black-leather-bag"
+          }
+        },
+        "product_dDXNYz": {
+          "type": "product",
+          "settings": {
+            "product": "blue-silk-tuxedo"
+          }
+        },
+        "product_gVV7Xf": {
+          "type": "product",
+          "settings": {
+            "product": "chequered-red-shirt"
+          }
+        },
+        "product_CinkKU": {
+          "type": "product",
+          "settings": {
+            "product": "classic-leather-jacket"
+          }
+        },
+        "product_dqUU3R": {
+          "type": "product",
+          "settings": {
+            "product": "classic-varsity-top"
+          }
+        },
+        "product_3fg7Uj": {
+          "type": "product",
+          "settings": {
+            "product": "dark-denim-top"
+          }
+        }
+      },
+      "block_order": [
+        "product_Gc7WLa",
+        "product_dDXNYz",
+        "product_gVV7Xf",
+        "product_CinkKU",
+        "product_dqUU3R",
+        "product_3fg7Uj"
+      ],
       "settings": {}
     }
   },
