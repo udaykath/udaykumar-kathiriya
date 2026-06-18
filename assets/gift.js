@@ -88,22 +88,33 @@ document.addEventListener("DOMContentLoaded", function () {
   // ADD TO CART
   document.getElementById('add-to-cart').addEventListener('click', function () {
 
-    if (!selectedVariant) return;
+  let sizeSelect = document.getElementById('sizes')
+  let selectedVariantId = sizeSelect.value
 
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: selectedVariant,
-        quantity: 1
-      })
+  if (!selectedVariantId) {
+    alert('Please select size')
+    return;
+  }
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      id: selectedVariantId,
+      quantity: 1
     })
-    .then(res => res.json())
-    .then(() => {
-      alert('Added to cart')
-    })
+  })
+  .then(res => res.json())
+  .then(() => {
+
+    // CLOSE POPUP
+    document.getElementById('popup').classList.remove('active')
+
+    // OPEN SHOPIFY CART (DEFAULT BEHAVIOR)
+    window.location.href = '/cart'
 
   })
+})
 
   // CLOSE
   document.querySelector('.close').addEventListener('click', function () {
