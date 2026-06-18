@@ -241,3 +241,98 @@
     width: 100%;
   }
 }
+
+
+
+
+
+/* Below is for hero part */
+
+.gift-hero {
+  width: 100%;
+}
+
+/* TOP IMAGE */
+.hero-top {
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* BOTTOM SPLIT */
+.hero-bottom {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+}
+
+/* LEFT CONTAINER */
+.hero-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  z-index: 2;
+}
+
+/* LEFT CONTENT */
+.hero-content {
+  max-width: 500px;
+}
+
+.hero-content h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* RIGHT IMAGE FULL EDGE */
+.hero-image {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50%;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* BUTTON */
+.btn {
+  background: black;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+}
+
+/* BOTTOM STRIP */
+.hero-strip {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  background: #eee;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-bottom {
+    flex-direction: column;
+  }
+
+  .hero-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+  }
+}
