@@ -67,7 +67,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // COLOR CLICK
 
+let selectedColor = null;
 
+document.querySelectorAll('.color-swatch').forEach(el => {
+  el.addEventListener('click', function () {
+
+    document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'))
+    this.classList.add('active')
+
+    selectedColor = this.dataset.color
+
+    let sizeSelect = document.getElementById('sizes')
+    let selectedSize = sizeSelect.options[sizeSelect.selectedIndex]?.text
+
+    let matchedVariant = product.variants.find(v => {
+      return v.options.includes(selectedColor) && v.title.includes(selectedSize)
+    })
+
+    if (matchedVariant) {
+      selectedVariant = matchedVariant.id
+    }
+
+  })
+})
 
     document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'))
     this.classList.add('active')
