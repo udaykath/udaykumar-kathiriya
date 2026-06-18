@@ -11,7 +11,7 @@
 }
 
 .grid {
-   display: flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 42px;
   max-width: 1400px;
@@ -19,9 +19,10 @@
   width: 100%;
 }
 
+/* FIXED FLEX WIDTH */
 .grid-item {
   position: relative;
-  width: 100%;
+  flex: 0 0 calc(33.333% - 28px);
 }
 
 .grid-item img {
