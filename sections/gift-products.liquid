@@ -4,7 +4,7 @@
     {% for block in section.blocks %}
       {% assign product = block.settings.product %}
       
-      <div class="grid-item" data-product='{{ product | json | escape }}'>
+      <div class="grid-item" data-handle="{{ product.handle }}">
         
         <img src="{{ product.featured_image | img_url: '600x' }}">
 
