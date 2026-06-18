@@ -1,3 +1,47 @@
+<section class="gift-grid">
+  <div class="grid">
+
+    {% for block in section.blocks %}
+      {% assign product = all_products[block.settings.product] %}
+      
+      <div class="grid-item" data-product='{{ product | json }}'>
+        
+        <img src="{{ product.featured_image | img_url: '600x' }}">
+
+        <button class="plus-btn">+</button>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+</section>
+
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item {
+  position: relative;
+}
+
+.plus-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+</style>
+
+
 {% schema %}
 {
   "name": "Gift Products",
