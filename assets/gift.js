@@ -66,10 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById('popup').classList.add('active')
 
           // COLOR CLICK
-          document.querySelectorAll('.color-swatch').forEach(el => {let selectedColor = null
 
-document.querySelectorAll('.color-swatch').forEach(el => {
-  el.addEventListener('click', function () {
+
 
     document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'))
     this.classList.add('active')
