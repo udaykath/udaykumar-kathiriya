@@ -1,0 +1,42 @@
+<header class="gift-header">
+  <div class="header-inner">
+
+    <div class="logo">TISSO VISION</div>
+
+    <div class="center-text">
+      Find the ideal gift for your loved ones.
+    </div>
+
+    <div class="cta">
+      <button>CHOOSE GIFT →</button>
+    </div>
+
+  </div>
+</header>
+
+<style>
+.gift-header {
+  padding: 10px 20px;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta button {
+  background: yellow;
+  padding: 10px 20px;
+}
+</style>
+
+
+{
+  "sections": {
+    "header": { "type": "gift-header" },
+    "hero": { "type": "gift-hero" },
+    "products": { "type": "gift-products" }
+  },
+  "order": ["header","hero","products"]
+}
