@@ -37,7 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
               if (!used.includes(color)) {
                 used.push(color)
 
-                colorsHTML += `<div class="color-swatch" data-color="${color}">${color}</div>`
+                colorsHTML += `<div class="color-swatch" data-color="${color}">
+    <span class="color-bar" style="background:${color.toLowerCase()}"></span>
+    ${color}
+  </div>
+
               }
             })
           }
