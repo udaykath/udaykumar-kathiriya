@@ -21,6 +21,13 @@
 
 .grid-item {
   position: relative;
+  width: 100%;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .plus-btn {
