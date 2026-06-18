@@ -40,13 +40,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 colorsHTML += `<div class="color-swatch" data-color="${color}">
     <span class="color-bar" style="background:${color.toLowerCase()}"></span>
     ${color}
-  </div>
+  </div>`
 
               }
             })
           }
 
           document.getElementById('colors').innerHTML = colorsHTML
+          
+          let firstColor = document.querySelector('.color-swatch')
+            if (firstColor) {
+            firstColor.classList.add('active')
+            }
 
           // SIZE
           let sizeHTML = ''
@@ -61,22 +66,29 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById('popup').classList.add('active')
 
           // COLOR CLICK
-          document.querySelectorAll('.color-swatch').forEach(el => {
-            el.addEventListener('click', function () {
+          document.querySelectorAll('.color-swatch').forEach(el => {let selectedColor = null
 
-              document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'))
-              this.classList.add('active')
+document.querySelectorAll('.color-swatch').forEach(el => {
+  el.addEventListener('click', function () {
 
-              let color = this.dataset.color
+    document.querySelectorAll('.color-swatch').forEach(e => e.classList.remove('active'))
+    this.classList.add('active')
 
-              let variant = product.variants.find(v => v.options.includes(color))
+    selectedColor = this.dataset.color
 
-              if (variant) {
-                selectedVariant = variant.id
-              }
+    let sizeSelect = document.getElementById('sizes')
+    let selectedSize = sizeSelect.options[sizeSelect.selectedIndex]?.text
 
-            })
-          })
+    let matchedVariant = product.variants.find(v => {
+      return v.options.includes(selectedColor) && v.title.includes(selectedSize)
+    })
+
+    if (matchedVariant) {
+      selectedVariant = matchedVariant.id
+    }
+
+  })
+})
 
           // SIZE CHANGE
           document.getElementById('sizes').addEventListener('change', function () {
