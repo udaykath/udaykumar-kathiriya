@@ -39,6 +39,15 @@
   width: 40px;
   height: 40px;
 }
+@media(max-width:768px){
+  .hero-inner {
+    flex-direction: column;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
 </style>
 
 <div id="popup" class="popup hidden">
