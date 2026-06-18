@@ -1,8 +1,7 @@
 .gift-grid {
-  width: 100%;
-  overflow: visible;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
-
 
 .grid-item img {
   width: 100%;
