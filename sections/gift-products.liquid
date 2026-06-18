@@ -71,43 +71,6 @@
   </div>
 </div>
 
-<script>
-document.querySelectorAll('.plus-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    
-    let product = JSON.parse(this.parentElement.dataset.product)
-
-    document.getElementById('popup-title').innerText = product.title
-    document.getElementById('popup-price').innerText = product.price / 100
-
-    document.getElementById('popup-img').src = product.featured_image
-
-    // COLORS
-    let colorsHTML = ''
-    product.options.forEach((opt, i) => {
-      if(opt.name.toLowerCase() == 'color'){
-        product.variants.forEach(v => {
-          colorsHTML += `<span class="color" style="background:${v.option1}"></span>`
-        })
-      }
-    })
-    document.getElementById('colors').innerHTML = colorsHTML
-
-    // SIZES
-    let sizeHTML = ''
-    product.variants.forEach(v => {
-      sizeHTML += `<option value="${v.id}">${v.title}</option>`
-    })
-    document.getElementById('sizes').innerHTML = sizeHTML
-
-    document.getElementById('popup').classList.remove('hidden')
-  })
-})
-
-document.querySelector('.close').onclick = () => {
-  document.getElementById('popup').classList.add('hidden')
-}
-</script>
 
 {% schema %}
 {
