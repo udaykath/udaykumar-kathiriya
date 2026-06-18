@@ -19,22 +19,43 @@
 
 <div id="popup" class="popup">
   <div class="popup-inner">
+
     <span class="close">×</span>
 
-    <div class="popup-content">
-      <img id="popup-img">
-      
-      <div>
+    <div class="popup-wrapper">
+
+      <!-- LEFT IMAGE -->
+      <div class="popup-left">
+        <img id="popup-img">
+      </div>
+
+      <!-- RIGHT CONTENT -->
+      <div class="popup-right">
+
         <h2 id="popup-title"></h2>
         <p id="popup-price"></p>
 
-        <div id="colors"></div>
-        <select id="sizes"></select>
+        <p id="popup-desc"></p>
 
-        <button id="add-to-cart">ADD TO CART</button>
+        <!-- COLOR -->
+        <div class="popup-group">
+          <label>Color</label>
+          <div id="colors"></div>
+        </div>
+
+        <!-- SIZE -->
+        <div class="popup-group">
+          <label>Size</label>
+          <select id="sizes"></select>
+        </div>
+
+        <button id="add-to-cart" class="add-btn">
+          ADD TO CART →
+        </button>
+
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
 
