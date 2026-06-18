@@ -49,7 +49,7 @@
   width: 100%;
   height: 100%;
   display: none;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.5);
   z-index: 9999;
 }
 .popup.active {
@@ -59,21 +59,55 @@
 }
 
 .popup-inner {
-  background: white;
+  background: #fff;
+  width: 700px;
   padding: 30px;
-  width: 500px;
+}
+
+.popup-wrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.popup-left img {
+  width: 220px;
+}
+
+.popup-right {
+  flex: 1;
+}
+
+.popup-group {
+  margin: 20px 0;
+}
+
+#colors {
+  display: flex;
 }
 
 .color-swatch {
-  display: inline-block;
-  margin-right: 10px;
+  border: 1px solid #000;
+  padding: 10px 20px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
-.color-swatch span {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+.color-swatch.active {
+  border: 2px solid blue;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 15px;
+  background: black;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  transform: translateX(5px);
 }
 
 /* RESPONSIVE */
