@@ -253,18 +253,17 @@
 }
 
 /* TOP IMAGE */
-.hero-top {
+.hero-top img {
   width: 100%;
-  height: 350px;
-  background-size: cover;
-  background-position: center;
+  height: auto;
+  display: block;
 }
 
-/* BOTTOM SPLIT */
+/* BOTTOM SECTION */
 .hero-bottom {
-  display: flex;
-  align-items: stretch;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 /* LEFT CONTAINER */
@@ -276,7 +275,7 @@
   z-index: 2;
 }
 
-/* LEFT CONTENT */
+/* CONTENT */
 .hero-content {
   max-width: 500px;
 }
@@ -297,14 +296,15 @@
   position: absolute;
   right: 0;
   top: 0;
-  height: 100%;
   width: 50%;
+  height: 100%;
 }
 
+/* 🔥 IMAGE FIT FIX */
 .hero-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* 🔥 IMPORTANT CHANGE */
 }
 
 /* BUTTON */
@@ -315,7 +315,7 @@
   cursor: pointer;
 }
 
-/* BOTTOM STRIP */
+/* STRIP */
 .hero-strip {
   width: 100%;
   text-align: center;
@@ -333,6 +333,99 @@
   .hero-image {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: auto;
+  }
+
+  .hero-image img {
+    height: auto;
+  }
+}
+
+
+/* Gift header css start */
+
+.gift-header {
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+/* MAIN LAYOUT */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* LOGO */
+.logo {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* CENTER TEXT */
+.center-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #555;
+}
+
+/* BUTTON */
+.cta button {
+  background: #ffe600;
+  padding: 10px 18px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* MOBILE MENU ICON */
+.mobile-menu {
+  display: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  /* TOP ROW */
+  .logo {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .mobile-menu {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  /* SECOND ROW (LOGO AGAIN STYLE LOOK) */
+  .center-text {
+    position: static;
+    transform: none;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  /* BUTTON ROW */
+  .cta {
+    text-align: center;
+  }
+
+  .cta button {
+    width: 100%;
   }
 }
