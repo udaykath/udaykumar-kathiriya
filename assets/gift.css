@@ -337,15 +337,15 @@
   transition: transform 0.4s ease;
   z-index: -1;
 }
-.cta button:hover {
+.btn:hover {
   color: #fff;
 }
 
-.cta button svg path {
+.btn svg path {
   transition: fill 0.3s ease;
 }
 
-.cta button:hover svg path {
+.btn:hover svg path {
   fill: #fff;
 }
 /* STRIP */
