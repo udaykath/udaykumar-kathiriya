@@ -9,6 +9,14 @@
  */
 {
   "sections": {
+    "header": {
+      "type": "gift-header",
+      "settings": {
+        "logo_text": "TISSO VISION",
+        "center_text": "Find the ideal gift for your loved ones.",
+        "btn_text": "CHOOSE GIFT"
+      }
+    },
     "hero": {
       "type": "gift-hero",
       "settings": {
@@ -72,6 +80,7 @@
     }
   },
   "order": [
+    "header",
     "hero",
     "products"
   ]
