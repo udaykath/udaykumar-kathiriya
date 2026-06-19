@@ -12,11 +12,12 @@
     "hero": {
       "type": "gift-hero",
       "settings": {
-        "bg_image": "shopify://shop_images/main-hero.png",
-        "right_image": "shopify://shop_images/right-hero.png",
+        "top_image": "shopify://shop_images/main-hero_565f0b0e-ec50-434e-957a-ca50d5aa7a97.png",
+        "right_image": "shopify://shop_images/hero-right.png",
         "heading": "The Gift Guide",
         "desc": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
-        "btn_text": "Shop Now"
+        "btn_text": "Shop Now",
+        "bottom_text": ""
       }
     },
     "products": {
