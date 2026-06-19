@@ -14,7 +14,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 42px;
-  max-width: 1400px;
+  max-width: 1440px;
+  padding: 0 50px;
   margin: 0 auto;
   width: 100%;
   flex-direction: row;
