@@ -204,7 +204,7 @@
   background: transparent;
 }
   */
-.color-swatch:hover, .color-swatch.active:hover{
+.color-swatch:hover .color-bar, .color-swatch.active .color-bar{
   background: #000000 !important;
 }
 
