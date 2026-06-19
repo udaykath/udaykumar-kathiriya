@@ -58,9 +58,6 @@
     border: 0;
 }
 
-.plus-btn:hover {
-  transform: scale(1.1);
-}
 
 /* POPUP */
 .popup {
