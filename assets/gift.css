@@ -331,7 +331,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: #000;
+  background: #FFF544;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s ease;
