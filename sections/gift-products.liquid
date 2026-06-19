@@ -1,4 +1,10 @@
 <section class="gift-grid">
+   <!-- 🔥 HEADING -->
+  {% if section.settings.heading != blank %}
+    <div class="gift-heading">
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+  {% endif %}
   <div class="grid">
 
     {% for block in section.blocks %}
