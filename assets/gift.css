@@ -193,7 +193,7 @@
   top: 0;
 }
 
-/* LEFT COLOR STRIP */
+/* LEFT COLOR STRIP 
 .color-swatch::before {
   content: '';
   position: absolute;
