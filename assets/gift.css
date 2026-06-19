@@ -393,24 +393,23 @@
   position: absolute;
   inset: 0;
   background: #000;
-  transform: scaleX(0); /* start hidden */
-  transform-origin: right; /* start from right */
+  transform: scaleX(0);
+  transform-origin: right; /* 🔥 KEEP SAME */
   transition: transform 0.4s ease;
   z-index: -1;
 }
 
-/* HOVER ANIMATION */
+/* HOVER */
 .cta button:hover::before {
-  transform: scaleX(1); /* expand */
-  transform-origin: left; /* animate toward left */
+  transform: scaleX(1);
+  transform-origin: right; /* 🔥 SAME HERE */
 }
 
-/* TEXT COLOR */
+/* TEXT */
 .cta button:hover {
   color: #fff;
 }
 
-/* SVG COLOR */
 .cta button svg path {
   transition: fill 0.3s ease;
 }
