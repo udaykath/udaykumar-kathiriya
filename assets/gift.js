@@ -59,10 +59,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
           document.getElementById('colors').innerHTML = colorsHTML;
 
-          // ===== SIZE DROPDOWN =====
+          // ===== SIZE DROPDOWN (WITH OPTIONS DATA) =====
           let sizeHTML = `<option value="">Choose your size</option>`;
           product.variants.forEach(v => {
-            sizeHTML += `<option value="${v.id}">${v.title}</option>`;
+            sizeHTML += `<option value="${v.id}" data-options='${JSON.stringify(v.options)}'>${v.title}</option>`;
           });
 
           document.getElementById('sizes').innerHTML = sizeHTML;
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
               selectedColor = this.dataset.color;
 
-              // 🔥 RESET SIZE
+              // RESET SIZE
               document.getElementById('sizes').value = "";
               selectedVariant = null;
 
@@ -89,17 +89,22 @@ document.addEventListener("DOMContentLoaded", function () {
           // ===== SIZE CHANGE =====
           document.getElementById('sizes').addEventListener('change', function () {
 
-            let selectedSize = this.options[this.selectedIndex].text;
+            let selectedOption = this.options[this.selectedIndex];
+            let variantId = selectedOption.value;
+            let variantOptions = JSON.parse(selectedOption.dataset.options || "[]");
+
             let activeColor = document.querySelector('.color-swatch.active')?.dataset.color;
 
-            if (!activeColor) return;
+            if (!activeColor) {
+              selectedVariant = null;
+              return;
+            }
 
-            let matchedVariant = currentProduct.variants.find(v =>
-              v.options.includes(activeColor) && v.title.includes(selectedSize)
-            );
-
-            if (matchedVariant) {
-              selectedVariant = matchedVariant.id;
+            // ✅ VALIDATE COMBINATION
+            if (variantOptions.includes(activeColor)) {
+              selectedVariant = variantId;
+            } else {
+              selectedVariant = null;
             }
 
           });
@@ -119,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (!selectedVariant) {
-      alert('Please select size');
+      alert('Please select valid size');
       return;
     }
 
@@ -135,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(() => {
 
       document.getElementById('popup').classList.remove('active');
-
       window.location.href = '/cart';
 
     });
