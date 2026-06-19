@@ -151,8 +151,13 @@
   color: #000;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
-.color-swatch::after {
+.color-swatch > *:not(.color-bar) {
+  position: relative;
+  z-index: 3;
+}
+.color-swatch::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -164,10 +169,18 @@
 }
 
 /* HOVER EFFECT */
-.color-swatch:hover::after {
+.color-swatch:hover::before {
   transform: scaleX(1); /* expand */
 }
+.color-swatch.active {
+  border: 2px solid #000;
+  color: #fff;
+}
 
+/* FULL BLACK BACKGROUND */
+.color-swatch.active::before {
+  transform: scaleX(1);
+}
 /* TEXT COLOR */
 .color-swatch:hover {
   color: #fff;
@@ -178,10 +191,11 @@
   position: absolute;
   left: 0;
   top: 0;
+  z-index: 2;
 }
 
 /* LEFT COLOR STRIP */
-.color-swatch::before {
+/*.color-swatch::before {
   content: '';
   position: absolute;
   left: 0;
@@ -189,6 +203,16 @@
   height: 100%;
   width: 6px;
   background: transparent;
+}*/
+.color-swatch::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 0; /* changed */
 }
 
 /* ACTIVE STATE */
