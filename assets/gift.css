@@ -327,7 +327,16 @@
   z-index: 1;
   color: #ffffff;
 }
-
+.btn:::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
 /* STRIP */
 .hero-strip {
   width: 100%;
