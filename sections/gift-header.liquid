@@ -1,42 +1,38 @@
+{% schema %}
+{
+  "name": "Gift Header",
+  "settings": [
+    { "type": "text", "id": "logo_text", "label": "Logo Text", "default": "TISSO VISION" },
+    { "type": "text", "id": "center_text", "label": "Center Text", "default": "Find the ideal gift for your loved ones." },
+    { "type": "text", "id": "btn_text", "label": "Button Text", "default": "CHOOSE GIFT" }
+  ]
+}
+{% endschema %}
+
 <header class="gift-header">
+
   <div class="header-inner">
 
-    <div class="logo">TISSO VISION</div>
+    <!-- LEFT -->
+    <div class="logo">
+      {{ section.settings.logo_text }}
+    </div>
 
+    <!-- CENTER -->
     <div class="center-text">
-      Find the ideal gift for your loved ones.
+      {{ section.settings.center_text }}
     </div>
 
+    <!-- RIGHT -->
     <div class="cta">
-      <button>CHOOSE GIFT →</button>
+      <button>
+        {{ section.settings.btn_text }} →
+      </button>
     </div>
+
+    <!-- MOBILE MENU ICON -->
+    <div class="mobile-menu">☰</div>
 
   </div>
+
 </header>
-
-<style>
-.gift-header {
-  padding: 10px 20px;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cta button {
-  background: yellow;
-  padding: 10px 20px;
-}
-</style>
-
-
-{
-  "sections": {
-    "header": { "type": "gift-header" },
-    "hero": { "type": "gift-hero" },
-    "products": { "type": "gift-products" }
-  },
-  "order": ["header","hero","products"]
-}
