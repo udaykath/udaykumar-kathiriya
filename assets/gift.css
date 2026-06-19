@@ -372,13 +372,52 @@
 }
 
 .cta button {
+  position: relative;
   background: #ffe600;
   padding: 10px 18px;
   border: none;
   font-size: 12px;
   cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  color: #000;
 }
 
+/* BLACK LAYER */
+.cta button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: scaleX(0); /* start hidden */
+  transform-origin: right; /* start from right */
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+/* HOVER ANIMATION */
+.cta button:hover::before {
+  transform: scaleX(1); /* expand */
+  transform-origin: left; /* animate toward left */
+}
+
+/* TEXT COLOR */
+.cta button:hover {
+  color: #fff;
+}
+
+/* SVG COLOR */
+.cta button svg path {
+  transition: fill 0.3s ease;
+}
+
+.cta button:hover svg path {
+  fill: #fff;
+}
 /* MOBILE MENU ICON */
 .mobile-menu {
   display: none;
