@@ -55,12 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           document.getElementById('colors').innerHTML = colorsHTML;
 
-          // DEFAULT ACTIVE COLOR
-          let firstColor = document.querySelector('.color-swatch');
-          if (firstColor) {
-            firstColor.classList.add('active');
-            selectedColor = firstColor.dataset.color;
-          }
+          
 
           // ===== SIZES =====
           let sizeHTML = '';
