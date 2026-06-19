@@ -208,8 +208,8 @@
 .color-swatch.active {
   border: 2px solid #000;
 }
-.color-swatch.active::before {
-  background: #1a3cff; /* blue strip */
+/*.color-swatch.active::before {
+  background: #1a3cff;
 }
 
 /* SIZE DROPDOWN */
