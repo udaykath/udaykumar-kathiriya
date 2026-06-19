@@ -2,7 +2,7 @@
 {
   "name": "Gift Header",
   "settings": [
-    { "type": "text", "id": "logo_text", "label": "Logo Text", "default": "TISSO VISION" },
+    { "type": "image_picker", "id": "logo", "label": "Logo Image" },
     { "type": "text", "id": "center_text", "label": "Center Text", "default": "Find the ideal gift for your loved ones." },
     { "type": "text", "id": "btn_text", "label": "Button Text", "default": "CHOOSE GIFT" }
   ]
@@ -13,17 +13,19 @@
 
   <div class="header-inner">
 
-    <!-- LEFT -->
+    <!-- LEFT LOGO -->
     <div class="logo">
-      {{ section.settings.logo_text }}
+      {% if section.settings.logo != blank %}
+        <img src="{{ section.settings.logo | img_url: 'master' }}" alt="Logo">
+      {% endif %}
     </div>
 
-    <!-- CENTER -->
+    <!-- CENTER TEXT -->
     <div class="center-text">
       {{ section.settings.center_text }}
     </div>
 
-    <!-- RIGHT -->
+    <!-- RIGHT BUTTON -->
     <div class="cta">
       <button>
         {{ section.settings.btn_text }} →
