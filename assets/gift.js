@@ -153,4 +153,24 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('popup').classList.remove('active');
   });
 
+
+  // header js //
+
+  const openBtn = document.querySelector('.mobile-menu');
+  const drawer = document.querySelector('.mobile-drawer');
+  const closeBtn = document.querySelector('.close-drawer');
+
+  if(openBtn){
+    openBtn.addEventListener('click', () => {
+      drawer.classList.add('active');
+    });
+  }
+
+  if(closeBtn){
+    closeBtn.addEventListener('click', () => {
+      drawer.classList.remove('active');
+    });
+  }
+
 });
+
