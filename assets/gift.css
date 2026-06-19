@@ -312,12 +312,19 @@
 
 /* BUTTON */
 .btn {
-  background: black;
-  color: white;
-  padding: 12px 30px;
+  position: relative;
+  background: #000000;
+  padding: 10px 18px;
+  border: none;
+  font-size: 12px;
   cursor: pointer;
-  width: 220px;
-    height: 50px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+  color: #ffffff;
 }
 
 /* STRIP */
