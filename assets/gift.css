@@ -152,6 +152,26 @@
   display: flex;
   align-items: center;
 }
+.color-swatch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: scaleX(0); /* hidden */
+  transform-origin: left; /* 🔥 start from left */
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+/* HOVER EFFECT */
+.color-swatch:hover::after {
+  transform: scaleX(1); /* expand */
+}
+
+/* TEXT COLOR */
+.color-swatch:hover {
+  color: #fff;
+}
 .color-bar {
   width: 6px;
   height: 100%;
