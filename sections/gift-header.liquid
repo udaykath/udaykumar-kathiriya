@@ -19,7 +19,9 @@
     <!-- LOGO -->
     <div class="logo">
       {% if section.settings.logo != blank %}
-        <img src="{{ section.settings.logo | img_url: 'master' }}">
+        <a href="{{ routes.root_url }}">
+          <img src="{{ section.settings.logo | img_url: 'master' }}">
+        </a>
       {% endif %}
     </div>
 
