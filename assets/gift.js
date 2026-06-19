@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
           currentProduct = product;
 
-          // BASIC INFO
+          // 🔥 RESET STATE
+          selectedVariant = null;
+          selectedColor = null;
+
+          // ===== BASIC INFO =====
           document.getElementById('popup-title').innerText = product.title;
           document.getElementById('popup-price').innerText = (product.price / 100).toFixed(2);
 
@@ -55,19 +59,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
           document.getElementById('colors').innerHTML = colorsHTML;
 
-          
-
-          // ===== SIZES =====
-          let sizeHTML = '';
+          // ===== SIZE DROPDOWN =====
+          let sizeHTML = `<option value="">Choose your size</option>`;
           product.variants.forEach(v => {
             sizeHTML += `<option value="${v.id}">${v.title}</option>`;
           });
 
           document.getElementById('sizes').innerHTML = sizeHTML;
 
-          selectedVariant = product.variants[0].id;
-
-          // OPEN POPUP
+          // ===== OPEN POPUP =====
           document.getElementById('popup').classList.add('active');
 
           // ===== COLOR CLICK =====
@@ -79,16 +79,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
               selectedColor = this.dataset.color;
 
-              let sizeSelect = document.getElementById('sizes');
-              let selectedSize = sizeSelect.options[sizeSelect.selectedIndex]?.text;
-
-              let matchedVariant = product.variants.find(v =>
-                v.options.includes(selectedColor) && v.title.includes(selectedSize)
-              );
-
-              if (matchedVariant) {
-                selectedVariant = matchedVariant.id;
-              }
+              // 🔥 RESET SIZE
+              document.getElementById('sizes').value = "";
+              selectedVariant = null;
 
             });
           });
@@ -97,10 +90,11 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById('sizes').addEventListener('change', function () {
 
             let selectedSize = this.options[this.selectedIndex].text;
-
             let activeColor = document.querySelector('.color-swatch.active')?.dataset.color;
 
-            let matchedVariant = product.variants.find(v =>
+            if (!activeColor) return;
+
+            let matchedVariant = currentProduct.variants.find(v =>
               v.options.includes(activeColor) && v.title.includes(selectedSize)
             );
 
@@ -119,8 +113,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // ===== ADD TO CART =====
   document.getElementById('add-to-cart').addEventListener('click', function () {
 
+    if (!selectedColor) {
+      alert('Please select color');
+      return;
+    }
+
     if (!selectedVariant) {
-      alert('Please select options');
+      alert('Please select size');
       return;
     }
 
@@ -143,29 +142,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
-  // ===== CLOSE =====
+  // ===== CLOSE POPUP =====
   document.querySelector('.close').addEventListener('click', function () {
     document.getElementById('popup').classList.remove('active');
   });
 
-
-  // header js //
-
+  // ===== HEADER JS =====
   const openBtn = document.querySelector('.mobile-menu');
   const drawer = document.querySelector('.mobile-drawer');
   const closeBtn = document.querySelector('.close-drawer');
 
-  if(openBtn){
+  if (openBtn) {
     openBtn.addEventListener('click', () => {
       drawer.classList.add('active');
     });
   }
 
-  if(closeBtn){
+  if (closeBtn) {
     closeBtn.addEventListener('click', () => {
       drawer.classList.remove('active');
     });
   }
 
 });
-
