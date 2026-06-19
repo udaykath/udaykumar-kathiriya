@@ -160,7 +160,7 @@
 }
 
 /* BACKGROUND LAYER */
-.color-swatch::before {
+.color-swatch::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -172,7 +172,7 @@
 }
 
 /* HOVER EFFECT */
-.color-swatch:hover::before {
+.color-swatch:hover::after {
   transform: scaleX(1); /* expand */
 }
 
