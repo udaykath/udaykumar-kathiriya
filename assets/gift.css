@@ -327,7 +327,7 @@
   z-index: 1;
   color: #ffffff;
 }
-.btn:::before{
+.btn::before{
   content: "";
   position: absolute;
   inset: 0;
@@ -344,7 +344,9 @@
 .btn svg path {
   transition: fill 0.3s ease;
 }
-
+.btn svg path{
+  fill: #ffffff;
+}
 .btn:hover svg path {
   fill: #fff;
 }
