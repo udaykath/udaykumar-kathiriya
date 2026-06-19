@@ -203,6 +203,10 @@
   width: 6px;
   background: transparent;
 }
+  */
+.color-swatch:hover, .color-swatch.active:hover{
+  background: #000000 !important;
+}
 
 /* ACTIVE STATE */
 .color-swatch.active {
