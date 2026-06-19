@@ -13,10 +13,13 @@
 
   <div class="header-inner">
 
-    <!-- LEFT LOGO -->
+    <!-- MOBILE MENU ICON -->
+    <div class="mobile-menu">☰</div>
+
+    <!-- LOGO -->
     <div class="logo">
       {% if section.settings.logo != blank %}
-        <img src="{{ section.settings.logo | img_url: 'master' }}" alt="Logo">
+        <img src="{{ section.settings.logo | img_url: 'master' }}">
       {% endif %}
     </div>
 
@@ -25,15 +28,36 @@
       {{ section.settings.center_text }}
     </div>
 
-    <!-- RIGHT BUTTON -->
+    <!-- BUTTON -->
     <div class="cta">
-      <button>
-        {{ section.settings.btn_text }} →
-      </button>
+      <button>{{ section.settings.btn_text }} →</button>
     </div>
 
-    <!-- MOBILE MENU ICON -->
-    <div class="mobile-menu">☰</div>
+  </div>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer">
+
+    <div class="drawer-inner">
+
+      <div class="drawer-top">
+        <span class="close-drawer">✕</span>
+        <div class="drawer-logo">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | img_url: 'master' }}">
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="drawer-text">
+        {{ section.settings.center_text }}
+      </div>
+
+      <div class="drawer-btn">
+        <button>{{ section.settings.btn_text }} →</button>
+      </div>
+
+    </div>
 
   </div>
 
