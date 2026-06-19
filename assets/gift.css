@@ -210,7 +210,13 @@
 
 /* ACTIVE STATE */
 .color-swatch.active {
-  border: 2px solid #000;
+  border: 1px solid #000;
+  color :#ffffff
+}
+.color-swatch.active .color-bar {
+    width: 100%;
+    z-index: -1;
+    background: #000 !important;
 }
 /*.color-swatch.active::before {
   background: #1a3cff;
