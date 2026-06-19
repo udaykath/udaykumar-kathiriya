@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
           currentProduct = product;
 
-          // 🔥 RESET STATE
           selectedVariant = null;
           selectedColor = null;
 
@@ -59,10 +58,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
           document.getElementById('colors').innerHTML = colorsHTML;
 
-          // ===== SIZE DROPDOWN (WITH OPTIONS DATA) =====
+          // ===== SIZE DROPDOWN (WITH STOCK CHECK) =====
           let sizeHTML = `<option value="">Choose your size</option>`;
+
           product.variants.forEach(v => {
-            sizeHTML += `<option value="${v.id}" data-options='${JSON.stringify(v.options)}'>${v.title}</option>`;
+
+            let disabled = !v.available ? 'disabled' : '';
+
+            sizeHTML += `
+              <option 
+                value="${v.id}" 
+                data-options='${JSON.stringify(v.options)}'
+                ${disabled}
+              >
+                ${v.title} ${!v.available ? '(Out of stock)' : ''}
+              </option>
+            `;
           });
 
           document.getElementById('sizes').innerHTML = sizeHTML;
@@ -79,9 +90,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
               selectedColor = this.dataset.color;
 
-              // RESET SIZE
               document.getElementById('sizes').value = "";
               selectedVariant = null;
+
+              // 🔥 FILTER SIZES BASED ON COLOR + STOCK
+              document.querySelectorAll('#sizes option').forEach(opt => {
+
+                if (!opt.value) return;
+
+                let opts = JSON.parse(opt.dataset.options || "[]");
+                let variant = currentProduct.variants.find(v => v.id == opt.value);
+
+                if (!opts.includes(selectedColor) || !variant.available) {
+                  opt.disabled = true;
+                } else {
+                  opt.disabled = false;
+                }
+
+              });
 
             });
           });
@@ -90,22 +116,13 @@ document.addEventListener("DOMContentLoaded", function () {
           document.getElementById('sizes').addEventListener('change', function () {
 
             let selectedOption = this.options[this.selectedIndex];
-            let variantId = selectedOption.value;
-            let variantOptions = JSON.parse(selectedOption.dataset.options || "[]");
 
-            let activeColor = document.querySelector('.color-swatch.active')?.dataset.color;
-
-            if (!activeColor) {
+            if (selectedOption.disabled) {
               selectedVariant = null;
               return;
             }
 
-            // ✅ VALIDATE COMBINATION
-            if (variantOptions.includes(activeColor)) {
-              selectedVariant = variantId;
-            } else {
-              selectedVariant = null;
-            }
+            selectedVariant = selectedOption.value;
 
           });
 
@@ -124,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (!selectedVariant) {
-      alert('Please select valid size');
+      alert('Please select available size');
       return;
     }
 
