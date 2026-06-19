@@ -346,7 +346,9 @@
 /* Gift header css start */
 
 .gift-header {
-  padding: 10px 20px;
+  padding: 10px 50px;
+  max-width: 1440px;
+  margin:0 auto;
   border-bottom: 1px solid #eee;
   background: #fff;
   position: relative;
