@@ -333,7 +333,7 @@
   inset: 0;
   background: #FFF544;
   transform: scaleX(0);
-  transform-origin: right;
+  transform-origin: left;
   transition: transform 0.4s ease;
   z-index: -1;
 }
@@ -342,7 +342,7 @@
 }
 .btn:hover::before {
   transform: scaleX(1);
-  transform-origin: right; 
+  transform-origin: left; 
 }
 .btn svg path {
   transition: fill 0.3s ease;
