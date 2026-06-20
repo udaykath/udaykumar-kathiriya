@@ -346,9 +346,8 @@
     right: 12%;
 }
 .grid-item:nth-child(3) .plus-btn {
-    top: 150px;
-    right: 0;
-    left: 0;
+        top: 20%;
+    right: 36%;
 }
 .grid-item:nth-child(4) .plus-btn {
    top: 17%;
