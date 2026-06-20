@@ -334,6 +334,37 @@
   opacity: 0.6;
 }
 
+.grid-item:first-child .plus-btn {
+    top: 150px;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+.grid-item:nth-child(2) .plus-btn {
+    top: 150px;
+    right: 0;
+    left: 0;
+}
+.grid-item:nth-child(3) .plus-btn {
+    top: 150px;
+    right: 0;
+    left: 0;
+}
+.grid-item:nth-child(4) .plus-btn {
+    top: 150px;
+    right: 0;
+    left: 0;
+}
+.grid-item:nth-child(5) .plus-btn {
+    top: 150px;
+    right: 0;
+    left: 0;
+  }
+.grid-item:last-child .plus-btn {
+    top: 150px;
+    right: 0;
+    left: 0;
+}
 /* RESPONSIVE */
 @media(max-width:768px){
   .grid {
