@@ -13,12 +13,20 @@
 
   <div class="header-inner">
 
-    <!-- MOBILE MENU ICON -->
-    <div class="mobile-menu"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 20 12" fill="none">
-<path d="M1 6H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1 1H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1 11H19" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></div>
+    <!-- MOBILE MENU ICON (UPDATED) -->
+    <div class="mobile-menu">
+      <span class="icon-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="12">
+          <path d="M1 6H19M1 1H19M1 11H19" stroke="black" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+
+      <span class="icon-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
+          <path d="M1 14L14 1M1 1L14 14" stroke="black" stroke-width="2"/>
+        </svg>
+      </span>
+    </div>
 
     <!-- LOGO -->
     <div class="logo">
@@ -36,29 +44,19 @@
 
     <!-- BUTTON -->
     <div class="cta">
-      <button>{{ section.settings.btn_text }} <svg xmlns="http://www.w3.org/2000/svg" width="26" height="12" viewBox="0 0 26 12" fill="none">
-<path d="M0.75 4.77298L7.37629e-08 4.77298L-7.37629e-08 6.27298L0.75 6.27298L0.75 4.77298ZM25.2803 6.05331C25.5732 5.76042 25.5732 5.28554 25.2803 4.99265L20.5074 0.21968C20.2145 -0.073213 19.7396 -0.0732131 19.4467 0.21968C19.1538 0.512574 19.1538 0.987447 19.4467 1.28034L23.6893 5.52298L19.4467 9.76562C19.1538 10.0585 19.1538 10.5334 19.4467 10.8263C19.7396 11.1192 20.2145 11.1192 20.5074 10.8263L25.2803 6.05331ZM0.75 6.27298L24.75 6.27298L24.75 4.77298L0.75 4.77298L0.75 6.27298Z" fill="black"/>
-</svg></button>
+      <button>
+        {{ section.settings.btn_text }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="12">
+          <path d="M0.75 4.77298L24.75 4.77298" stroke="black" stroke-width="1.5"/>
+        </svg>
+      </button>
     </div>
 
   </div>
 
-  <!-- MOBILE DRAWER -->
+  <!-- MOBILE DRAWER (SIMPLIFIED) -->
   <div class="mobile-drawer">
-
     <div class="drawer-inner">
-
-      <div class="drawer-top">
-        <span class="close-drawer"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
-<path d="M1 13.9994L13.7279 1.27147" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M1 1L13.7279 13.7279" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></span>
-        <div class="drawer-logo">
-          {% if section.settings.logo != blank %}
-            <img src="{{ section.settings.logo | img_url: 'master' }}">
-          {% endif %}
-        </div>
-      </div>
 
       <div class="drawer-text">
         {{ section.settings.center_text }}
@@ -69,7 +67,6 @@
       </div>
 
     </div>
-
   </div>
 
 </header>
