@@ -552,6 +552,9 @@
     left: 40%;
     top: 55%;
 }
+.mobile-strip {
+  display: none;
+}
 
 /* RESPONSIVE */
 @media(max-width:1199px){
@@ -678,6 +681,13 @@
   }
   .hero-image{
     margin-top: 0;
+  }
+  .desktop-strip {
+    display: none;
+  }
+
+  .mobile-strip {
+    display: block;
   }
 }
 
