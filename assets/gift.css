@@ -292,17 +292,6 @@
   align-items: center;
 }
 
-/* ARROW INSIDE BUTTON */
-.add-btn::after {
-  content: "→";
-  margin-left: 10px;
-  transition: 0.3s;
-}
-
-.add-btn:hover::after {
-  transform: translateX(5px);
-}
-
 /* CLOSE BUTTON */
 
 .close {
