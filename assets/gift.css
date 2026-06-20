@@ -690,7 +690,7 @@
     display: block;
   }
   .gift-heading{
-    margin-top:35px;
+    margin: 35px auto 10px;
   }
   .gift-grid{
     padding: 0 15px;
