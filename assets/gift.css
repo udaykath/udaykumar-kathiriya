@@ -171,7 +171,49 @@
   color: #fff;
 }
 
+.custom-select {
+  position: relative;
+  width: 100%;
+}
 
+/* MAIN SELECT */
+.custom-select select {
+  width: 100%;
+  padding: 14px 50px 14px 15px;
+  border: 1px solid #000;
+  font-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* RIGHT BOX (ARROW AREA) */
+.custom-select::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  border-left: 1px solid #000;
+  pointer-events: none;
+}
+
+/* ARROW ICON */
+.custom-select::before {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  transform: translateY(-50%) rotate(45deg);
+  pointer-events: none;
+}
 
 
 
