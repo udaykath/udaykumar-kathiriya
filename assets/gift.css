@@ -598,6 +598,12 @@
   }
 }
 @media(max-width:768px){
+   .desktop-img {
+    display: none;
+  }
+  .mobile-img {
+    display: block;
+  }
 	.center-text,
 	  .cta {
 	    display: none;
