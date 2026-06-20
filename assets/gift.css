@@ -246,6 +246,7 @@
 .color-swatch.active {
   border: 1px solid #000;
   color :#ffffff
+  background:#000000;
 }
 .color-swatch.active .color-bar {
     width: 100%;
