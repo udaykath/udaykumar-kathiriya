@@ -625,4 +625,49 @@
       font-size: 30px;
   }
 
+   .hero-bottom {
+    flex-direction: column;
+  }
+
+  .hero-container {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+    margin: 15px 0;
+  }
+
+  .btn {
+    margin: 0 auto;
+  }
+
+  .hero-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero-strip {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
 }
