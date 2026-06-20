@@ -689,6 +689,12 @@
   .mobile-strip {
     display: block;
   }
+  .gift-heading{
+    margin-top:35px;
+  }
+  .gift-grid{
+    padding: 0 15px;
+  }
 }
 
 @media(max-width:375px){
