@@ -705,7 +705,9 @@
     right: 0;
     bottom: 40px;
   }
-
+.hero-bottom{
+  position: relative;
+}
   .hero-image {
     position: relative;
     width: 100%;
