@@ -77,9 +77,11 @@ function formatMoney(cents) {
       "Red": "#b11226",
       "Black": "#000000",
       "White": "#ffffff",
+      "Grey": "#AFAFB7",
       "Blue": "#1e3a8a",
       "Green": "#14532d",
       "Yellow": "#facc15"
+
     };
 
     let bgColor = colorMap[color] || color.toLowerCase();
