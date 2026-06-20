@@ -601,10 +601,11 @@
   }
 }
 @media(max-width:768px){
+  
    .desktop-img {
     display: none;
   }
-  .mobile-img {
+  .mobile-img, .mobile-drawer {
     display: block;
   }
 	.center-text,
