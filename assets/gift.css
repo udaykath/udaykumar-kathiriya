@@ -342,17 +342,18 @@
     margin: 0 auto;
 }
 .grid-item:nth-child(2) .plus-btn {
-    top: 52%;
-    right: 10%;
-}
-.grid-item:nth-child(3) .plus-btn {
-    top: 20%;
-    right: 35%;
-}
-.grid-item:nth-child(4) .plus-btn {
     top: 150px;
     right: 0;
     left: 0;
+}
+.grid-item:nth-child(3) .plus-btn {
+    top: 150px;
+    right: 0;
+    left: 0;
+}
+.grid-item:nth-child(4) .plus-btn {
+   top: 17%;
+  right: 25%;
 }
 .grid-item:nth-child(5) .plus-btn {
     top: 150px;
