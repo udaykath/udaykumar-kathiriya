@@ -615,10 +615,14 @@
   }
   .hero-top {
     display: none;
-}
+  }
   .header-inner{
     padding-right:15px;
     padding-left: 15px;
+  }
+  .hero-content h1 {
+      text-align: center;
+      font-size: 30px;
   }
 
 }
