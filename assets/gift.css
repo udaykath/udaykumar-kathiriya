@@ -7,12 +7,15 @@
   padding: 10px 50px;
   max-width: 1440px;
   margin:0 auto;
+   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
+  justify-content: center; 
 }
-
+.mobile-menu {
+  position: absolute;
+  left: 15px;
+}
 .logo img {
   max-height: 20px;
 }
