@@ -238,9 +238,7 @@
   background: transparent;
 }
   */
-.color-swatch:hover .color-bar{
-  background: #000000 !important;
-}
+
 
 /* ACTIVE STATE */
 .color-swatch.active {
