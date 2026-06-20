@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // ===== BASIC INFO =====
           document.getElementById('popup-title').innerText = product.title;
-          document.getElementById('popup-price').innerText = (product.price / 100).toFixed(2);
+          document.getElementById('popup-price').innerText = Shopify.formatMoney(product.price);
 
           if (product.images.length) {
             document.getElementById('popup-img').src = product.images[0];
