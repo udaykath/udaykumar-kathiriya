@@ -562,6 +562,12 @@
   .hero-image img{
     object-fit: contain;
   }
+  .hero-content{
+    width: 48%;
+  }
+  .hero-content h1{
+    font-size: 60px;
+  }
 }
 @media(max-width:768px){
 	.center-text,
