@@ -32,13 +32,21 @@
     <div class="hero-container">
       <div class="hero-content">
 
-        <h1>
-          {{ section.settings.heading_mobile | default: section.settings.heading }}
-        </h1>
+         <h1 class="desktop-only">
+  {{ section.settings.heading }}
+</h1>
 
-        <p>
-          {{ section.settings.desc_mobile | default: section.settings.desc }}
-        </p>
+<h1 class="mobile-only">
+  {{ section.settings.heading_mobile }}
+</h1>
+
+<p class="desktop-only">
+  {{ section.settings.desc }}
+</p>
+
+<p class="mobile-only">
+  {{ section.settings.desc_mobile }}
+</p>
 
         <button class="btn">
           {{ section.settings.btn_text }}
