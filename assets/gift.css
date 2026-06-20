@@ -290,6 +290,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap:20px;
 }
 .add-btn svg path{
   fill: #ffffff;
