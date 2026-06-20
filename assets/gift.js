@@ -203,6 +203,7 @@ function formatMoney(cents) {
     openBtn.addEventListener('click', () => {
       openBtn.classList.toggle('active');
       drawer.classList.toggle('active');
+      body.classList.toggle('menu-open');
     });
   }
 
