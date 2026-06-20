@@ -581,7 +581,9 @@
 .mobile-strip {
   display: none;
 }
-
+.mobile-only {
+  display: none;
+}
 /* RESPONSIVE */
 @media(max-width:1199px){
   .hero-image{
@@ -739,7 +741,12 @@
   body.menu-open {
     overflow: hidden;
   }
-
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+  }
 }
 
 @media(max-width:375px){
