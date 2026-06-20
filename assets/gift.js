@@ -4,21 +4,27 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentProduct = null;
   let selectedColor = null;
 
-  // 🔥 AUTO CURRENCY FORMAT (BASED ON STORE)
-  function formatMoney(cents) {
+  // AUTO CURRENCY FORMAT (BASED ON STORE)
+function formatMoney(cents) {
   let currency = window.Shopify?.currency?.active || "USD";
 
   let amount = (cents / 100).toFixed(2);
 
-  // get symbol only
-  let symbol = new Intl.NumberFormat(undefined, {
-    style: "currency",
-    currency: currency
-  })
-  .formatToParts(0)
-  .find(p => p.type === "currency")?.value || "";
+  // MANUAL SYMBOL MAP (CLEAN)
+  const symbols = {
+    USD: "$",
+    INR: "₹",
+    EUR: "€",
+    GBP: "£",
+    AUD: "$",
+    CAD: "$",
+    SGD: "$",
+    AED: "د.إ"
+  };
 
-  return `${amount} ${symbol}`; // 🔥 symbol AFTER price
+  let symbol = symbols[currency] || "$";
+
+  return `${amount}${symbol}`; // ✅ NO SPACE + AFTER PRICE
 }
 
   document.querySelectorAll('.plus-btn').forEach(btn => {
