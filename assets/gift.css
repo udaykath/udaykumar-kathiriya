@@ -271,6 +271,7 @@
 
 /* BUTTON */
 .add-btn {
+  position: relative;
   width: 100%;
   padding: 15px;
   margin-top: 50px;
@@ -284,9 +285,36 @@
   justify-content: center;
   align-items: center;
   gap:20px;
+  overflow: hidden;
+  z-index: 1;
 }
 .add-btn svg path{
   fill: #ffffff;
+  transition: fill 0.3s ease;
+
+}
+.add-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff544;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.add-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.add-btn:hover {
+  color: #000;
+}
+
+
+.add-btn:hover svg path {
+  fill: #000;
 }
 /* CLOSE BUTTON */
 
