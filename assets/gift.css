@@ -99,6 +99,7 @@
 }
 
 .mobile-drawer {
+  display:none;
   position: fixed;
   top: 39px;
   left: -100%;
