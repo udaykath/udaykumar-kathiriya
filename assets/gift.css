@@ -36,6 +36,7 @@
 
 .mobile-drawer.active {
   left: 0;
+  top: 39px;
 }
 .logo {
   margin: 0 auto;
@@ -99,7 +100,7 @@
 
 .mobile-drawer {
   position: fixed;
-  top: 0;
+  top: 39px;
   left: -100%;
   width: 100%;
   height: 100%;
