@@ -742,7 +742,12 @@
   body.menu-open {
     overflow: hidden;
   }
-
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
+  }
 }
 
 @media(max-width:375px){
