@@ -248,14 +248,6 @@
   color :#ffffff
   background:#000000;
 }
-.color-swatch.active .color-bar {
-    width: 100%;
-    z-index: -1;
-    background: #000 !important;
-}
-/*.color-swatch.active::before {
-  background: #1a3cff;
-}
 
 /* SIZE DROPDOWN */
 #sizes {
