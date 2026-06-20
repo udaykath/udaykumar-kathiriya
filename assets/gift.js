@@ -196,19 +196,13 @@ function formatMoney(cents) {
   });
 
   // ===== HEADER JS =====
-  const openBtn = document.querySelector('.mobile-menu');
+ const openBtn = document.querySelector('.mobile-menu');
   const drawer = document.querySelector('.mobile-drawer');
-  const closeBtn = document.querySelector('.close-drawer');
 
   if (openBtn) {
     openBtn.addEventListener('click', () => {
-      drawer.classList.add('active');
-    });
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      drawer.classList.remove('active');
+      openBtn.classList.toggle('active');
+      drawer.classList.toggle('active');
     });
   }
 
