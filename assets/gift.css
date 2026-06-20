@@ -690,7 +690,11 @@
     display: block;
   }
   .gift-heading{
-    margin: 35px auto 10px;
+    margin: 35px auto 15px;
+  }
+  .gift-heading h2{
+    font-size: 24px;
+    text-align: center;
   }
   .gift-grid{
     padding: 0 15px;
