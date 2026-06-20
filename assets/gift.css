@@ -17,7 +17,7 @@
   left: 15px;
 }
 .logo {
-  text-align: center;
+  margin: 0 auto;
 }
 .logo img {
   max-height: 20px;
