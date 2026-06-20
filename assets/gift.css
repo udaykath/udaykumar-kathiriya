@@ -731,6 +731,10 @@
     right: 52px !important;
     left: auto !important;
   }
+  body.menu-open {
+    overflow: hidden;
+  }
+
 }
 
 @media(max-width:375px){
