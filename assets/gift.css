@@ -141,10 +141,12 @@
 }
 
 .drawer-btn button {
-  width: 100%;
   background: #ffe600;
-  padding: 12px;
-  border: none;
+    padding: 12px;
+    border: none;
+    font-size: 16px;
+    width: 244px;
+    height: 44px;
 }
 
 .gift-hero {
