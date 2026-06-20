@@ -6,18 +6,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 🔥 AUTO CURRENCY FORMAT (BASED ON STORE)
   function formatMoney(cents) {
-    let currency = window.Shopify?.currency?.active || "USD";
+  let currency = window.Shopify?.currency?.active || "USD";
 
-    try {
-      return new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency: currency
-      }).format(cents / 100);
-    } catch (e) {
-      // fallback
-      return (cents / 100).toFixed(2);
-    }
-  }
+  let amount = (cents / 100).toFixed(2);
+
+  // get symbol only
+  let symbol = new Intl.NumberFormat(undefined, {
+    style: "currency",
+    currency: currency
+  })
+  .formatToParts(0)
+  .find(p => p.type === "currency")?.value || "";
+
+  return `${amount} ${symbol}`; // 🔥 symbol AFTER price
+}
 
   document.querySelectorAll('.plus-btn').forEach(btn => {
 
