@@ -61,8 +61,13 @@
   </div>
 
   <!-- STRIP -->
-  <div class="hero-strip">
+ <div class="hero-strip">
+  <span class="desktop-strip">
     {{ section.settings.bottom_text }}
-  </div>
+  </span>
+  <span class="mobile-strip">
+    {{ section.settings.bottom_text_mobile | default: section.settings.bottom_text }}
+  </span>
+</div>
 
 </section>
