@@ -291,7 +291,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.add-btn svg path{
+  fill: #ffffff;
+}
 /* CLOSE BUTTON */
 
 .close {
