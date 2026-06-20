@@ -679,5 +679,7 @@
   .hero-image img{
     object-fit: contain;
   }
-
+  .hero-image{
+    margin-top: 0;
+  }
 }
