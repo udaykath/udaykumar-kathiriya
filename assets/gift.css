@@ -245,7 +245,7 @@
 /* ACTIVE STATE */
 .color-swatch.active {
   border: 1px solid #000;
-  color :#ffffff
+  color :#ffffff;
   background:#000000;
 }
 
