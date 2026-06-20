@@ -159,6 +159,7 @@
   transform-origin: left; /* 🔥 start from left */
   transition: transform 0.4s ease;
   z-index: -1;
+  border:1px solid #000000;
 }
 
 /* HOVER EFFECT */
