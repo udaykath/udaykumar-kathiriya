@@ -52,11 +52,26 @@
 
     <!-- RIGHT IMAGE -->
     <div class="hero-image">
-      <img 
-        src="{{ section.settings.right_image_mobile | default: section.settings.right_image | img_url: 'master' }}" 
-        alt=""
-      >
-    </div>
+
+  <!-- DESKTOP IMAGE -->
+  {% if section.settings.right_image != blank %}
+    <img 
+      class="desktop-img"
+      src="{{ section.settings.right_image | img_url: 'master' }}" 
+      alt=""
+    >
+  {% endif %}
+
+  <!-- MOBILE IMAGE -->
+  {% if section.settings.right_image_mobile != blank %}
+    <img 
+      class="mobile-img"
+      src="{{ section.settings.right_image_mobile | img_url: 'master' }}" 
+      alt=""
+    >
+  {% endif %}
+
+</div>
 
   </div>
 
