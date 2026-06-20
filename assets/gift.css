@@ -613,7 +613,9 @@
   .popup-left img {
     width: 100%;
   }
-
+  .hero-top {
+    display: none;
+}
   .header-inner{
     padding-right:15px;
     padding-left: 15px;
