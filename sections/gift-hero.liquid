@@ -12,6 +12,8 @@
     { "type": "textarea", "id": "desc", "label": "Description" },
     { "type": "textarea", "id": "desc_mobile", "label": "Mobile Description" },
 
+    { "type": "text", "id": "btn_text", "label": "Button Text", "default": "SHOP NOW" },
+
     { "type": "text", "id": "bottom_text", "label": "Bottom Strip Text" },
     { "type": "text", "id": "bottom_text_mobile", "label": "Mobile Bottom Strip" }
   ]
@@ -25,42 +27,40 @@
     <img src="{{ section.settings.top_image | img_url: 'master' }}" alt="">
   </div>
 
-  <!-- BOTTOM SECTION -->
+  <!-- BOTTOM -->
   <div class="hero-bottom">
 
     <!-- LEFT CONTENT -->
     <div class="hero-container">
       <div class="hero-content">
 
-         <h1 class="desktop-only">
-  {{ section.settings.heading }}
-</h1>
+        <!-- ✅ SINGLE H1 -->
+        <h1>
+          <span class="desktop-only">
+            {{ section.settings.heading }}
+          </span>
+          <span class="mobile-only">
+            {{ section.settings.heading_mobile | default: section.settings.heading }}
+          </span>
+        </h1>
 
-<h1 class="mobile-only">
-  {{ section.settings.heading_mobile }}
-</h1>
+        <!-- ✅ SINGLE DESC -->
+        <p>
+          <span class="desktop-only">
+            {{ section.settings.desc }}
+          </span>
+          <span class="mobile-only">
+            {{ section.settings.desc_mobile | default: section.settings.desc }}
+          </span>
+        </p>
 
-<p class="desktop-only">
-  {{ section.settings.desc }}
-</p>
-
-<p class="mobile-only">
-  {{ section.settings.desc_mobile }}
-</p>
-
-
-<button class="btn desktop-only">
-  {{ section.settings.btn_text }}  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="12" viewBox="0 0 26 12" fill="none">
+        <!-- ✅ BUTTON -->
+        <button class="btn">
+          {{ section.settings.btn_text }}
+          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="12" viewBox="0 0 26 12" fill="none">
             <path d="M0.75 4.77298L24.75 4.77298M24.75 4.77298L20.5074 0.21968M24.75 4.77298L20.5074 9.76562" stroke="currentColor" stroke-width="1.5"/>
           </svg>
-</button>
-
-<button class="btn mobile-only">
-  {{ section.settings.btn_text_mobile | default: section.settings.btn_text }}  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="12" viewBox="0 0 26 12" fill="none">
-            <path d="M0.75 4.77298L24.75 4.77298M24.75 4.77298L20.5074 0.21968M24.75 4.77298L20.5074 9.76562" stroke="currentColor" stroke-width="1.5"/>
-          </svg>
-</button>
-       
+        </button>
 
       </div>
     </div>
@@ -68,36 +68,34 @@
     <!-- RIGHT IMAGE -->
     <div class="hero-image">
 
-  <!-- DESKTOP IMAGE -->
-  {% if section.settings.right_image != blank %}
-    <img 
-      class="desktop-img"
-      src="{{ section.settings.right_image | img_url: 'master' }}" 
-      alt=""
-    >
-  {% endif %}
+      {% if section.settings.right_image != blank %}
+        <img 
+          class="desktop-img"
+          src="{{ section.settings.right_image | img_url: 'master' }}" 
+          alt=""
+        >
+      {% endif %}
 
-  <!-- MOBILE IMAGE -->
-  {% if section.settings.right_image_mobile != blank %}
-    <img 
-      class="mobile-img"
-      src="{{ section.settings.right_image_mobile | img_url: 'master' }}" 
-      alt=""
-    >
-  {% endif %}
+      {% if section.settings.right_image_mobile != blank %}
+        <img 
+          class="mobile-img"
+          src="{{ section.settings.right_image_mobile | img_url: 'master' }}" 
+          alt=""
+        >
+      {% endif %}
 
-</div>
+    </div>
 
   </div>
 
   <!-- STRIP -->
- <div class="hero-strip">
-  <span class="desktop-strip">
-    {{ section.settings.bottom_text }}
-  </span>
-  <span class="mobile-strip">
-    {{ section.settings.bottom_text_mobile | default: section.settings.bottom_text }}
-  </span>
-</div>
+  <div class="hero-strip">
+    <span class="desktop-strip">
+      {{ section.settings.bottom_text }}
+    </span>
+    <span class="mobile-strip">
+      {{ section.settings.bottom_text_mobile | default: section.settings.bottom_text }}
+    </span>
+  </div>
 
 </section>
