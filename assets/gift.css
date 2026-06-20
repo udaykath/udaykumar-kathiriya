@@ -616,7 +616,7 @@
   .hero-top {
     display: none;
   }
-  .header-inner{
+  .header-inner, .hero-bottom{
     padding-right:15px;
     padding-left: 15px;
   }
