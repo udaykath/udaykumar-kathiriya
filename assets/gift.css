@@ -680,3 +680,9 @@
     margin-top: 0;
   }
 }
+
+@media(max-width:375px){
+  .hero-image img {
+    object-fit: none;
+  }
+}
