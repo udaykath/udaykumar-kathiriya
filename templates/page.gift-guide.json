@@ -22,8 +22,11 @@
       "settings": {
         "top_image": "shopify://shop_images/main-hero_565f0b0e-ec50-434e-957a-ca50d5aa7a97.png",
         "right_image": "shopify://shop_images/hero-right.png",
+        "right_image_mobile": "shopify://shop_images/mobile-hero.png",
         "heading": "The Gift Guide",
+        "heading_mobile": "The Gift Guide",
         "desc": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "desc_mobile": "Discover Joy: Your Ultimate Holiday Gift Destination.",
         "btn_text": "Shop Now",
         "bottom_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
       }
@@ -76,7 +79,9 @@
         "product_AwKz8i",
         "product_Qw6Tjz"
       ],
-      "settings": {}
+      "settings": {
+        "heading": "Tisso vison in the wild"
+      }
     }
   },
   "order": [
