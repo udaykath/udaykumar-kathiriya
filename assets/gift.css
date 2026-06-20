@@ -264,6 +264,8 @@
   font-size: 14px;
   appearance: none;
   position: relative;
+  outline:0;
+  border-radius:0;
 }
 
 /* CUSTOM ARROW */
