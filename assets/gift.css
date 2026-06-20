@@ -706,12 +706,6 @@
   padding: 20px;
 }
 
-.drawer-top {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
 .drawer-text {
   text-align: center;
   font-size: 16px;
