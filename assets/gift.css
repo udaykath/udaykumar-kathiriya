@@ -16,6 +16,9 @@
   position: absolute;
   left: 15px;
 }
+.logo {
+  text-align: center;
+}
 .logo img {
   max-height: 20px;
 }
