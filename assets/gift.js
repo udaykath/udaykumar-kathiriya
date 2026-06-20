@@ -78,7 +78,7 @@ function formatMoney(cents) {
       "Black": "#000000",
       "White": "#ffffff",
       "Grey": "#AFAFB7",
-      "Blue": "#1e3a8a",
+      "Blue": "#0D499F",
       "Green": "#14532d",
       "Yellow": "#facc15"
 
