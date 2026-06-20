@@ -616,7 +616,7 @@
   .hero-top {
     display: none;
   }
-  .header-inner, .hero-bottom{
+  .header-inner{
     padding-right:15px;
     padding-left: 15px;
   }
@@ -668,6 +668,10 @@
   .hero-strip {
     font-size: 13px;
     padding: 8px 15px;
+  }
+  .hero-bottom{
+    padding-left:0;
+    padding-right:0;
   }
 
 }
