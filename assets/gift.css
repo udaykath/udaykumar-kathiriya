@@ -712,15 +712,6 @@
   margin-bottom: 20px;
 }
 
-.close-drawer {
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.drawer-logo img {
-  max-height: 20px;
-}
-
 .drawer-text {
   text-align: center;
   font-size: 16px;
