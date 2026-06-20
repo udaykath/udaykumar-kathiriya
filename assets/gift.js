@@ -67,19 +67,32 @@ function formatMoney(cents) {
             let used = [];
 
             product.variants.forEach(v => {
-              let color = v.options[colorIndex];
+  let color = v.options[colorIndex];
 
-              if (!used.includes(color)) {
-                used.push(color);
+  if (!used.includes(color)) {
+    used.push(color);
 
-                colorsHTML += `
-                  <div class="color-swatch" data-color="${color}">
-                    <span class="color-bar" style="background:${color.toLowerCase()}"></span>
-                    ${color}
-                  </div>
-                `;
-              }
-            });
+    // ✅ ADD THIS BLOCK HERE
+    const colorMap = {
+      "Red": "#b11226",
+      "Black": "#000000",
+      "White": "#ffffff",
+      "Blue": "#1e3a8a",
+      "Green": "#14532d",
+      "Yellow": "#facc15"
+    };
+
+    let bgColor = colorMap[color] || color.toLowerCase();
+
+    // ✅ USE bgColor HERE
+    colorsHTML += `
+      <div class="color-swatch" data-color="${color}">
+        <span class="color-bar" style="background:${bgColor}"></span>
+        ${color}
+      </div>
+    `;
+  }
+});
           }
 
           document.getElementById('colors').innerHTML = colorsHTML;
