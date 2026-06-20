@@ -555,6 +555,14 @@
 }
 
 /* RESPONSIVE */
+@media(max-width:1199px){
+  .hero-image{
+    width: 50%
+  }
+  .hero-image img{
+    object-fit: contain;
+  }
+}
 @media(max-width:768px){
 	.center-text,
 	  .cta {
