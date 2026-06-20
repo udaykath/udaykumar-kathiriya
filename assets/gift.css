@@ -673,5 +673,11 @@
     padding-left:0;
     padding-right:0;
   }
+  .hero-content{
+    width:100%;
+  }
+  .hero-image img{
+    object-fit: contain;
+  }
 
 }
