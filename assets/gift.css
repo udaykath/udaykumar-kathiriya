@@ -16,6 +16,27 @@
   position: absolute;
   left: 15px;
 }
+.icon-close {
+  display: none;
+}
+
+.mobile-menu.active .icon-menu {
+  display: none;
+}
+
+.mobile-menu.active .icon-close {
+  display: block;
+}
+
+.mobile-drawer {
+  left: -100%;
+  width: 80%;
+  background: #f5f5f5;
+}
+
+.mobile-drawer.active {
+  left: 0;
+}
 .logo {
   margin: 0 auto;
 }
