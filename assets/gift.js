@@ -4,6 +4,21 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentProduct = null;
   let selectedColor = null;
 
+  // 🔥 AUTO CURRENCY FORMAT (BASED ON STORE)
+  function formatMoney(cents) {
+    let currency = window.Shopify?.currency?.active || "USD";
+
+    try {
+      return new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: currency
+      }).format(cents / 100);
+    } catch (e) {
+      // fallback
+      return (cents / 100).toFixed(2);
+    }
+  }
+
   document.querySelectorAll('.plus-btn').forEach(btn => {
 
     btn.addEventListener('click', function () {
@@ -16,12 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
           currentProduct = product;
 
+          // 🔥 RESET STATE
           selectedVariant = null;
           selectedColor = null;
 
           // ===== BASIC INFO =====
           document.getElementById('popup-title').innerText = product.title;
-          document.getElementById('popup-price').innerText = Shopify.formatMoney(product.price);
+
+          // ✅ FIXED CURRENCY HERE
+          document.getElementById('popup-price').innerText = formatMoney(product.price);
 
           if (product.images.length) {
             document.getElementById('popup-img').src = product.images[0];
@@ -58,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           document.getElementById('colors').innerHTML = colorsHTML;
 
-          // ===== SIZE DROPDOWN (WITH STOCK CHECK) =====
+          // ===== SIZE DROPDOWN =====
           let sizeHTML = `<option value="">Choose your size</option>`;
 
           product.variants.forEach(v => {
@@ -90,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
               selectedColor = this.dataset.color;
 
+              // 🔥 RESET SIZE
               document.getElementById('sizes').value = "";
               selectedVariant = null;
 
@@ -117,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             let selectedOption = this.options[this.selectedIndex];
 
-            if (selectedOption.disabled) {
+            if (!selectedOption.value || selectedOption.disabled) {
               selectedVariant = null;
               return;
             }
