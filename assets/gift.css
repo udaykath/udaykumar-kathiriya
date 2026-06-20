@@ -356,14 +356,12 @@
   right: 25%;
 }
 .grid-item:nth-child(5) .plus-btn {
-    top: 150px;
-    right: 0;
-    left: 0;
+    top: 24%;
+    right: 45%;
   }
 .grid-item:last-child .plus-btn {
-    top: 150px;
-    right: 0;
-    left: 0;
+    left: 40%;
+    top: 55%;
 }
 /* RESPONSIVE */
 @media(max-width:768px){
