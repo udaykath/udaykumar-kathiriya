@@ -614,4 +614,9 @@
     width: 100%;
   }
 
+  .header-inner{
+    padding-right:15px;
+    padding-left: 15px;
+  }
+
 }
