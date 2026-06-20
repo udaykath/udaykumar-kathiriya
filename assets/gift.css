@@ -111,9 +111,10 @@
 
 #popup-desc {
   font-size: 12px;
-  color: #555;
+  color: #000000;
   font-weight:300;
-  line-height: 1.4;
+      line-height: 1.1;
+    letter-spacing: -0.1px;
 }
 
 /* GROUP */
