@@ -616,10 +616,6 @@
   .popup-wrapper {
     flex-direction: column;
   }
-
-  .popup-left img {
-    width: 100%;
-  }
   .hero-top {
     display: none;
   }
